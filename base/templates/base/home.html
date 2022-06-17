@@ -12,8 +12,11 @@
 
     <div>
         {% for room in rooms %}
-        
+
         <a href="{% url 'update_room' room.id %}">Edit</a>
+        <a href="{% url 'delete_room' room.id %}">Delete</a>
+
+        
 
       <div>
         <span>
