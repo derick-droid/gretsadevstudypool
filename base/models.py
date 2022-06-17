@@ -22,12 +22,14 @@ class Room(models.Model):
     update = models.DateTimeField(auto_now = True)
     created_date = models.DateTimeField(auto_now_add = True)
     
+    # to show the rooms created in asecending order
     class Meta:
         ordering = ["-update", "-created_date"]
     
     def __str__(self):
         return self.name
     
+    # messages to be sent
 class Messages(models.Model):
     user = models.ForeignKey(User, on_delete= models.CASCADE)
     room = models.ForeignKey(Room, on_delete= models.CASCADE)
