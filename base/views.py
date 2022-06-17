@@ -2,6 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Room
+from .forms import RoomForm
 
 
 # creating rooms
@@ -26,5 +27,6 @@ def room(request, pk):
 
 # create_rooom
 def create_room(request):
-    context = {}
+    form = RoomForm
+    context = {"form" : form}
     return render(request, 'base/room_form.html', context)
