@@ -17,6 +17,18 @@
       SEARCH TOPICS
     </h3>
     <hr>
+    <div>
+      <a href="{% url 'home' %}">ALL</a>
+
+    </div>
+
+    <!-- bringing the topics -->
+    {% for topic in topics %}
+    <div>
+      <a href="{% url 'home' %}?q={{topic.name}}">{{topic}}</a>
+    </div>
+
+    {% endfor %}
   </div>
   <div>
     <a href="{% url 'create_room' %}">Create A Room </a>
