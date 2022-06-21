@@ -5,6 +5,7 @@ from .models import Room
 from .forms import RoomForm
 
 
+
 # creating rooms
 # rooms = [
 #     {'id':1, 'name':'let us learn python'},
@@ -12,6 +13,7 @@ from .forms import RoomForm
 #     {'id':3, 'name':'frontend developers'},
 
 # ]
+
 
 # home code 
 def home(request):
