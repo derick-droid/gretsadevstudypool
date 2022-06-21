@@ -13,6 +13,8 @@
 </style>
 <div class="home-container">
   <div>
+
+    <!-- sidebar showing topic available  -->
     <h3>
       SEARCH TOPICS
     </h3>
@@ -30,7 +32,17 @@
 
     {% endfor %}
   </div>
+
+  
+
+  <!-- creating room home page -->
   <div>
+
+    <!-- determing number of rooms available  -->
+  <h5>
+    {{rooms.count}} rooms available
+  </h5>
+
     <a href="{% url 'create_room' %}">Create A Room </a>
     <hr>
     <br>
