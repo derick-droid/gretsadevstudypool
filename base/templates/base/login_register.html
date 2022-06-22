@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div>
     <form method="POST" action="">
         {% csrf_token %}
@@ -13,5 +14,20 @@
         <input type="submit" value="login">
     </form>
 </div>
+
+
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="">username</label>
+        <input type="text" name="username" placeholder="Enter username">
+
+        <label for="">Password</label>
+       <input type="password" name="password" placeholder="Enter Password">
+       
+        <input type="submit" value="login">
+    </form>
+</div>
+
 
 {% endblock content %}
