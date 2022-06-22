@@ -16,6 +16,10 @@ from .forms import RoomForm
 
 # ]
 
+def login_page(request):
+    context = {}
+    return render(request, 'base/login_register.html', context)
+
 
 # home code 
 def home(request):
