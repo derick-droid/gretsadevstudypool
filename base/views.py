@@ -9,6 +9,7 @@ from .forms import RoomForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 
 
 
@@ -21,6 +22,7 @@ from django.contrib.auth.decorators import login_required
 # ]
 
 def login_page(request):
+    page = "login" # register
     
     # preventing relogin 
     if request.user.is_authenticated:
@@ -46,12 +48,19 @@ def login_page(request):
         else:
             messages.error(request, "username or password does not exist")
             
-    context = {}
+    context = {
+        "page": page,
+    }
     return render(request, 'base/login_register.html', context)
 
 def logout_user(request):
     logout(request)
     return redirect ("home")
+
+def register_user(request):
+    form = UserCreationForm()
+    
+    return render(request, 'base/login_register.html', {"form" : form})
 
 
 # home code 
