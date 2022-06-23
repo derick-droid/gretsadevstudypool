@@ -13,5 +13,16 @@
     </h3>
     <hr>
 
+    <!-- displaying the messages  -->
+    {% for messages in messages %}
+        <div>
+            <small>
+                @{{message.user}} {{message.created}}
+            </small>
+        </div>
+
+
+    {% endfor %}
+
 </div>
 {% endblock content %}
