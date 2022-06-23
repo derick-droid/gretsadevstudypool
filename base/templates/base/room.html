@@ -14,10 +14,10 @@
     <hr>
 
     <!-- displaying the messages  -->
-    {% for messages in messages %}
+    {% for messages in room_messages %}
         <div>
             <small>
-                @{{message.user}} {{message.created}}
+                @{{messages.user}}     {{messages.created_date}}
             </small>
         </div>
 
