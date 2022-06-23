@@ -98,10 +98,10 @@ def home(request):
 # room code 
 def room(request, pk):
     room = Room.objects.get(id = pk)
-    room_messages = room.messages_set.all()
+    messages = room.messages_set.all()
     context = {
         'room':room,
-        'room_messages':room_messages,
+        'messages':messages,
                }
     return render (request, 'base/room.html', context)
 

@@ -11,13 +11,15 @@
     <h3>
         conversation
     </h3>
+   
     <hr>
 
     <!-- displaying the messages  -->
-    {% for messages in room_messages %}
+    {% for message in messages %}
         <div>
+           
             <small>
-                @{{messages.user}}     {{messages.created_date}}
+                @{{message.user}}     {{message.created_date}}
             </small>
         </div>
 
