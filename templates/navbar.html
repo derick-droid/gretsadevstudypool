@@ -8,6 +8,9 @@
 </form>
 {% if request.user.is_authenticated %}
 <a href="{% url 'logout_user' %}">LOGOUT</a>
+<p>
+    Hello {{request.user}} You are welcome to the study pool
+</p>
 {% else%}
 <a href="{% url 'login_page' %}">LOGIN</a>
 {% endif %}
