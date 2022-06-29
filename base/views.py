@@ -98,7 +98,7 @@ def home(request):
 # room code 
 def room(request, pk):
     room = Room.objects.get(id = pk)
-    messages = room.messages_set.all()
+    messages = room.messages_set.all().order_by("-created_date")
     context = {
         'room':room,
         'messages':messages,
@@ -106,6 +106,7 @@ def room(request, pk):
     return render (request, 'base/room.html', context)
 
 @login_required(login_url = "/login")
+
 # create_rooom
 def create_room(request):
     form = RoomForm
