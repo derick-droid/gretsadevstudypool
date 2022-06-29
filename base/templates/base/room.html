@@ -5,7 +5,7 @@
     {{room.name}}
 </h1>
 <p>
-    {{room.destination}}
+    {{room.description}}
 </p>
 <div class="comment-wrapper">
     <h3>
@@ -21,6 +21,11 @@
             <small>
                 @{{message.user}}     {{message.created_date|timesince}} ago
             </small>
+            <p>
+                {{message.body}}
+                <hr>
+            </p>
+
         </div>
 
 
