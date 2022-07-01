@@ -1,3 +1,4 @@
+from email import message
 from multiprocessing import context
 from unicodedata import name
 from django.shortcuts import render, redirect
@@ -161,10 +162,24 @@ def delete_room(request, pk):
     room = Room.objects.get(id = pk)
     
     if request.user != room.host: # blocking unauthorized
-      return HttpResponse("You are not the authorized to delete ")
+      return HttpResponse("You are not the authorized to delete this room ")
     
     
     if request.method == "POST":
         room.delete()
         return redirect ("home")
     return render(request, "base/delete.html", {'obj': room})
+
+# deleting a message
+@login_required(login_url = "/login") # the user is logged in before deleting
+def delete_message(request, pk):
+    message= Messages.objects.get(id = pk)
+    
+    if request.user != message.user: # blocking unauthorized
+      return HttpResponse("You are not the authorized to delete this message ")
+    
+    
+    if request.method == "POST":
+        message.delete()
+        return redirect ("home")
+    return render(request, "base/delete.html", {'obj': message})
