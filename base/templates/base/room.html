@@ -30,12 +30,15 @@
 
 
     {% endfor %}
+
+    {% if request.user.is_authenticated%}
     <div>
         <form  method="POST" action="">
             {% csrf_token %}
             <input type="text" name="body" placeholder="write your message here...">
         </form>
     </div>
-
+    {% endif %}
 </div>
+
 {% endblock content %}
