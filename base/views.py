@@ -99,6 +99,7 @@ def home(request):
 def room(request, pk):
     room = Room.objects.get(id = pk)
     room_messages = room.messages_set.all().order_by("-created_date")
+    participants = room.participants.all() 
     
     if request.method == "POST":  
                
@@ -108,12 +109,14 @@ def room(request, pk):
          body = request.POST.get("body"),
          
      )
+     room.participants.add(request.user)
      return redirect ("room", pk = room.id)
    
     
     context = {
         'room':room,
         'room_messages':room_messages,
+        'participants':participants
                }
     return render (request, 'base/room.html', context)
 

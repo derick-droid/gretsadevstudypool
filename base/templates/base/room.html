@@ -51,10 +51,21 @@
 
      </div>
 		 <div>
+
+			<!-- display members -->
 			<h3>
-				Members
+				participants
 			</h3>
 			<hr>
+
+			{% for user in participants %}
+			     <div>
+						<p>
+							@{{user.username}}
+						</p>
+					 </div>
+
+			{% endfor %}
 		 </div>
 
  
