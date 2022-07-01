@@ -1,44 +1,51 @@
 
 {% extends 'base.html' %}
 {% block content %}
-<h1>
-    {{room.name}}
-</h1>
-<p>
-    {{room.description}}
-</p>
-<div class="comment-wrapper">
-    <h3>
-        conversation
-    </h3>
-   
-    <hr>
-
-    <!-- displaying the messages  -->
-    {% for message in room_messages %}
-        <div>
-           
-            <small>
-                @{{message.user}}     {{message.created_date|timesince}} ago
-            </small>
-            <p>
-                {{message.body}}
-                <hr>
-            </p>
-
-        </div>
-
-
-    {% endfor %}
-
-    {% if request.user.is_authenticated%}
-    <div>
-        <form  method="POST" action="">
-            {% csrf_token %}
-            <input type="text" name="body" placeholder="write your message here...">
-        </form>
+<div class="room-container">
+<div>
+    <h1>
+        {{room.name}}
+    </h1>
+    <p>
+        {{room.description}}
+    </p>
+    
+    <div class="comment-wrapper">
+        <h3>
+            conversation
+        </h3>
+       
+        <hr>
+    
+        <!-- displaying the messages  -->
+        {% for message in room_messages %}
+            <div>
+                <small>
+                    @{{message.user}}     {{message.created_date|timesince}} ago
+                </small>
+                <p>
+                    {{message.body}}
+                    <hr>
+                </p>
+            </div>
+        {% endfor %}
     </div>
-    {% endif %}
+    
+    
+        {% if request.user.is_authenticated%}
+        <div>
+            <form  method="POST" action="">
+                {% csrf_token %}
+                <input type="text" name="body" placeholder="write your message here...">
+            </form>
+        </div>
+        {% endif %}
+
 </div>
+
+ 
+</div>
+
+
 
 {% endblock content %}
