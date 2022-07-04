@@ -78,6 +78,12 @@
     {% for message in room_messages %}
     <div>
       <small>@{{message.user}} {{message.created_date|timesince}}</small>
+      <small>
+        reply to "{{message.room}}""
+      </small>
+      <p>
+        {{message}}
+      </p>
 
     </div>
 
