@@ -1,0 +1,7 @@
+ <!-- bringing the topics -->
+ {% for topic in topics %}
+ <div>
+   <a href="{% url 'home' %}?q={{topic.name}}">{{topic}}</a>
+ </div>
+
+ {% endfor %}

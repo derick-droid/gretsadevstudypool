@@ -23,14 +23,8 @@
       <a href="{% url 'home' %}">ALL</a>
 
     </div>
-
-    <!-- bringing the topics -->
-    {% for topic in topics %}
-    <div>
-      <a href="{% url 'home' %}?q={{topic.name}}">{{topic}}</a>
-    </div>
-
-    {% endfor %}
+       {% include 'base/topics_components.html' %}
+   
   </div>
 
   
@@ -74,24 +68,9 @@
 
   <!-- Recent activity -->
   <div>
-    <h3>Recent Activities</h3>
-    {% for message in room_messages %}
-    <div>
-      <small>@{{message.user}} {{message.created_date|timesince}}</small>
-      <small>
-        reply to "{{message.room}}""
-      </small>
-      <p>
-        {{message}}
-      </p>
-      {% if request.user == message.user %}
-							  <a href="{% url 'delete_message'  message.id %}">Delete</a>
-			{% endif %}
-      <hr>
+   {% include 'base/activity_component.html' %}
 
     </div>
-
-    {% endfor %}
     
   </div>
   
