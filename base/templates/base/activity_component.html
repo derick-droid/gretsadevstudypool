@@ -2,7 +2,9 @@
 <h3>Recent Activities</h3>
 {% for message in room_messages %}
 <div>
-  <small>@<a href="{% url 'user-profile'  message.user.id %}">{{message.user}} </a>{{message.created_date|timesince}}</small>
+
+  <!-- link the user profile -->
+  <small>@<a href="{% url 'user-profile'message.user.id %}">{{message.user}} </a>{{message.created_date|timesince}}</small>
   <small>
     reply to "{{message.room}}""
   </small>
