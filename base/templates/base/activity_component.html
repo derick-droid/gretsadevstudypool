@@ -4,7 +4,7 @@
 <div>
 
   <!-- link the user profile -->
-  <small>@<a href="{% url 'user-profile'message.user.id %}">{{message.user}} </a>{{message.created_date|timesince}}</small>
+  <small><a href="{% url 'user-profile' message.user.id %}">@ {{message.user}} </a>{{message.created_date|timesince}}</small>
   <small>
     reply to "{{message.room}}""
   </small>
