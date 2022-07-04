@@ -87,7 +87,7 @@ def home(request):
                                 
     topics = Topic.objects.all()
     room_count = rooms.count() # showing number of rooms available 
-    room_messages = Messages.objects.all()
+    room_messages = Messages.objects.filter(Q(room__topic__name__icontains = q))
     
     context = {
                "rooms":rooms,
