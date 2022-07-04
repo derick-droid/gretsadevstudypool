@@ -93,7 +93,7 @@ def home(request):
                "rooms":rooms,
                "topics":topics,
                "room_count":room_count,
-               "room-messages":room_messages,
+               "room_messages":room_messages,
                
                }
     return render (request, 'base/home.html',context)

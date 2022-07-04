@@ -36,6 +36,11 @@ class Messages(models.Model):
     body = models.TextField()
     update = models.DateTimeField(auto_now=True)
     created_date = models.DateTimeField(auto_now_add=True)
+     
+    # to show the rooms created in asecending order
+    class Meta:
+        ordering = ["-update", "-created_date"]
+    
     
     def __str__(self):
         return self.body[0:50]

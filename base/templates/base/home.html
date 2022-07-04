@@ -71,9 +71,17 @@
             {% endfor %}
         </div>
   </div>
+
   <!-- Recent activity -->
   <div>
     <h3>Recent Activities</h3>
+    {% for message in room_messages %}
+    <div>
+      <small>@{{message.user}} {{message.created_date|timesince}}</small>
+
+    </div>
+
+    {% endfor %}
     
   </div>
   
