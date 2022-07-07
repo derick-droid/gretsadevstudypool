@@ -145,6 +145,7 @@ def userProfile(request, pk):
 # create_rooom
 def create_room(request):
     form = RoomForm
+    topics = Topic.objects.all()
     if request.method == "POST":
         form  = RoomForm(request.POST)
         if form.is_valid():
@@ -153,7 +154,10 @@ def create_room(request):
             room.save()
             return redirect("home")
         
-    context = {"form" : form}
+    context = {
+        "form" : form,
+        "topics" : topics
+        }
     return render(request, 'base/room_form.html', context)
 
 
@@ -162,6 +166,7 @@ def create_room(request):
 def update_room(request, pk):
     room = Room.objects.get(id=pk)
     form = RoomForm(instance=room)
+    topics = Topic.objects.all()
     
     if request.user != room.host: # blocking unauthorized
         return HttpResponse("You are not the authorized to update")
@@ -173,7 +178,10 @@ def update_room(request, pk):
             form.save()
             return redirect ("home")
     
-    context = {"form":form}
+    context = {
+        "form":form,
+        "topics":topics,
+        }
     return render(request, "base/room_form.html", context)
 
 
