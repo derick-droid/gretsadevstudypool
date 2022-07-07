@@ -25,9 +25,9 @@
 
 
             <div class="form__group">
-              <label for="room_topic">Room Topic</label>
+              <label for="room_topic">Enter a Topic</label>
               <!-- <input id="room_name" name="room_name" type="text" placeholder="E.g. Mastering Python + Django" /> -->
-              <input required type="text" name="topic" list="topic-list" >
+              <input required type="text" name="topic" value="{{room.topic.name}}" list="topic-list" >
               <datalist id="topic-list">
                 <select  id="room_topic">
                   {% for topic in topics %}
@@ -70,7 +70,7 @@
             </div> -->
             <div class="form__action">
               <a class="btn btn--dark" href="index.html">Cancel</a>
-              <button class="btn btn--main" type="submit">Create Room</button>
+              <button class="btn btn--main" type="submit">Submit</button>
             </div>
           </form>
         </div>
