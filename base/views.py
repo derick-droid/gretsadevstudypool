@@ -222,3 +222,9 @@ def delete_message(request, pk):
         message.delete()
         return redirect ("home")
     return render(request, "base/delete.html", {'obj': message})
+
+# user updating own profile
+@login_required(login_url = "login")
+def updateuser(request):
+    return render(request,"base/update-user.html")
+    
