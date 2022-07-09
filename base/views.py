@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.http import HttpResponse
 from .models import Room, Topic, Messages
-from .forms import RoomForm
+from .forms import RoomForm,Userform
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -226,5 +226,10 @@ def delete_message(request, pk):
 # user updating own profile
 @login_required(login_url = "login")
 def updateuser(request):
-    return render(request,"base/update-user.html")
+    user = request.user
+    form = Userform(instance=user)
+    context = {
+        "form":form
+    }
+    return render(request,"base/update-user.html", context)
     
