@@ -248,4 +248,14 @@ def topics_page(request):
         "topics": topics
     }
     return render(request, 'base/topics.html', context)
+
+
+# activities update
+def activities(request):
+    room_messages = Messages.objects.all()
+    context = {
+        
+    }
+    return render(request, "base/activity.html", context)
+    
     
