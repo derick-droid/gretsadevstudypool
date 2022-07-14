@@ -2,7 +2,11 @@
 from unicodedata import name
 from functools import update_wrapper
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+
+class User(AbstractUser):
+    pass
+
 # from base.views import room
 
 # class Topic(models.Model):
