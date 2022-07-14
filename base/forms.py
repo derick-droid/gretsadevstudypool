@@ -1,7 +1,13 @@
+from dataclasses import fields
 from pyexpat import model
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from .models import Room, User
+
+class MyUserCreationForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ["name", "username", "email", "password", "password"]
 
 
 class RoomForm(ModelForm):
