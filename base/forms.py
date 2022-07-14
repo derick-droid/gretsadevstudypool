@@ -1,7 +1,6 @@
 from pyexpat import model
 from django.forms import ModelForm
-from .models import Room
-from django.contrib.auth.models import User
+from .models import Room, User
 
 
 class RoomForm(ModelForm):
